@@ -57,8 +57,6 @@ function checkRow(gameBoard){
         winner = gameBoard[3];
     } else if (gameBoard[6] == gameBoard[7] && gameBoard[6] == gameBoard[8] && gameBoard[6] != "-") {
         winner = gameBoard[6];
-    } else {
-        winner = null
     }
 }
 
@@ -70,8 +68,6 @@ function checkColumn(gameBoard){
         winner = gameBoard[1];
     } else if (gameBoard[2] == gameBoard[5] && gameBoard[2] == gameBoard[8] && gameBoard[2] != "-") {
         winner = gameBoard[2];
-    } else {
-        winner = null
     }
 }
 
@@ -81,8 +77,6 @@ function checkDiagonal(gameBoard){
         winner = gameBoard[0];
     } else if (gameBoard[2] == gameBoard[4] && gameBoard[2] == gameBoard[6] && gameBoard[2] != "-") {
         winner = gameBoard[2];
-    } else {
-        winner = null
     }
 }
 
