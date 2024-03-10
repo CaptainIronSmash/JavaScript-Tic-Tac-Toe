@@ -4,6 +4,7 @@ var gameBoard = ["-", "-", "-",
 var currentPlayer  = "X";
 var winner = null;
 var gameRunning = true;
+var terminate = false;
 call();
 
 // The game board will print with all the spaces originally empty.
@@ -17,7 +18,7 @@ function printBoard(gameBoard){
 
 // The program continues to check for a winner and for both the user's and computer's inputs.
 function call(){
-    while (gameRunning == true) {
+    while (gameRunning == true && terminate == false) {
         printBoard(gameBoard);
         playerInput(gameBoard);
         checkTiles();
@@ -85,7 +86,7 @@ function checkTie(gameBoard){
     if (!gameBoard.includes("-")) {
         printBoard(gameBoard);
         console.log("");
-        console.log("It is a tie!");
+        console.log("It's a tie.");
         console.log("");
         gameRunning = false;
         result();
@@ -146,13 +147,16 @@ function restart(){
 
 // The user can choose to restart the game or to exit the program.
 function result(){
-    while (gameRunning == false) {
+    while (gameRunning == false && terminate == false) {
         console.log("Do you want to play again?");
         var answer = prompt("Please answer with (yes/no): ");
         if (answer == "yes") {
             restart();
         } else if (answer == "no") {
-            break
+            console.log("");
+            console.log("Goodbye.");
+            terminate = true
+            winner = null
         } else if (answer != "yes" || answer != "no") {
             console.log("");
             console.log("Please respond with (yes/no).");
